@@ -24,7 +24,7 @@ export default class page extends Component{
     };
 
     async componentDidMount(){
-      
+        var redrct:any;
         console.log("ran..");
         var github_username:any,
         github_id :any,
@@ -105,9 +105,12 @@ export default class page extends Component{
                     return response.json();
                 }).then((data)=>{
                     console.log(data);
+                    redrct = "yes";
                 })
             }
-            window.location.assign('/')
+        }
+        if(redrct==="yes"){
+        window.location.assign('/')
         }
         }
 render(){
