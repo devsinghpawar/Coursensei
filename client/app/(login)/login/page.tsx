@@ -12,17 +12,19 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/navigation'
 
-const CLIENT_ID = '';
+const CLIENT_ID = '8cb9b070f24805529bff';
 const REDIRECT_URL = 'http://localhost:3000/login/';
 
 export default class page extends Component{
+  
     githublogin = async()=>{
         window.location.assign("https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID + "&scope=repo&redirect_uri=" + REDIRECT_URL +"&state=randomstring");
     };
 
     async componentDidMount(){
+      
         console.log("ran..");
         var github_username:any,
         github_id :any,
@@ -105,6 +107,7 @@ export default class page extends Component{
                     console.log(data);
                 })
             }
+            window.location.assign('/')
         }
         }
 render(){

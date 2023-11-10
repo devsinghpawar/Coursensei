@@ -13,17 +13,28 @@ import {
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Popup from './Popup'
-
+import { useRouter,usePathname} from 'next/navigation'
+import { useEffect } from 'react'
 export default function Navbar() {
   const[isSearch,setSearch]=useState<boolean>(true);
+  const [Tokent, setToken] = useState<string>('');
   //const[isStr,setStr]=useState("block lg:hidden")
+  const pathname = usePathname();
   
+  useEffect(()=>{
+    const access_tokenn: string | null = localStorage.getItem("access_tokenn");
+    if(access_tokenn!==null){
+      setToken(access_tokenn)
+    }else{
+      setToken("null")
+    }
+  })
   const assignSearch = (newValue:boolean) => {
     setSearch(newValue);
   };
   return (
     <>
-    <div className="flex-col md:flex sticky top-0 backdrop-blur-sm">
+    <div className="flex-col md:flex sticky top-0 backdrop-blur-sm z-20">
         <div className="">
           <div className="flex h-16 items-center px-4">
           <Avatar>
@@ -31,9 +42,10 @@ export default function Navbar() {
             <AvatarFallback>...</AvatarFallback>
           </Avatar>
             <div className="ml-auto flex items-center space-x-3">
+              {pathname !== "/login"?
             <div className='block lg:hidden mr-4'>
                   <Popup/>
-                </div>
+                </div>:<></>}
               <UserNav />
             </div>
           </div>

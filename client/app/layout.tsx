@@ -9,6 +9,7 @@ import Popup from './(components)/Popup'
 import { Separator } from "@/components/ui/separator"
 import Landing from './(components)/Landing'
 const inter = Inter({ subsets: ['latin'] })
+import { useRouter,usePathname } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'ProjectX',
@@ -22,6 +23,9 @@ export default function RootLayout({
 }) {
   const [Tokent, setToken] = useState<string>('');
   const [uselogin, setLogin] = useState<string>('');
+  const router = useRouter();
+  const pathname = usePathname()
+
   useEffect(() => {
     const access_tokenn: string | null = localStorage.getItem("access_tokenn");
     const login: string | null = localStorage.getItem("login");
@@ -36,11 +40,12 @@ export default function RootLayout({
   })
   return (
     <html lang="en">
-      <body className="bg-gradient-to-r from-purple-500 to-purple-950">
+      <body className={Tokent!=="null" || pathname === "/login"?" ":"bg-gradient-to-r from-purple-500 to-purple-950"}>
         <Navbar/>
-        {Tokent!=="null" || uselogin==="allow"?
-        <div className="grid grid-cols-5 gap-3">
-            <div className="hidden lg:block"><Sidebar/></div>
+        {Tokent!=="null" || pathname === "/login"?
+        <div className={pathname !== "/login"?"grid grid-cols-5 gap-3":""}>
+          {pathname !== "/login"?
+            <div className="hidden lg:block"><Sidebar/></div>:<></>}
             {children}
         </div>:
         <Landing/>

@@ -16,11 +16,10 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
   import { useEffect,useState } from "react"
+  import {useRouter} from 'next/navigation'
   export function UserNav() {
+    const router = useRouter();
     const [newuserdetails,setuserdetails] = useState<String[]>([])
-    const [newemail,setemail] = useState('')
-    const [newname,setname] = useState('')
-    const [newusername,setusername] = useState('')
     useEffect(()=>{
       async function getdetails(){
         const token = localStorage.getItem("access_tokenn")
@@ -40,6 +39,11 @@ import {
       }
       getdetails();
     },[])
+
+    async function deletetoken(){
+      localStorage.removeItem('access_tokenn');
+      router.push('/login')
+    }
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -79,7 +83,7 @@ import {
             <DropdownMenuItem>New Team</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={deletetoken}>
             Log out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
