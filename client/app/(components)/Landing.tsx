@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Image from 'next/image'
 import dashboardpic from "./images/dashboardpic.png"
+import Login from './Login';
 export default function Landing() {
+//const [uselogin,setLogin] = useState("landing");
     const login = () => {
+        //setLogin("login");
         localStorage.setItem("login","allow");
     }
   return (
     <>
+    
     <div className="background-blur-sm">
         <div>
             <section className="flex flex-col items-center gap-2 px-4 pt-8 md:pt-12 pb-8">

@@ -21,19 +21,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const [Tokent, setToken] = useState<string>('');
+  const [uselogin, setLogin] = useState<string>('');
   useEffect(() => {
     const access_tokenn: string | null = localStorage.getItem("access_tokenn");
+    const login: string | null = localStorage.getItem("login");
     if(access_tokenn!==null){
       setToken(access_tokenn)
     }else{
       setToken("null")
+    }
+    if(login!==null){
+      setLogin(login)
     }
   })
   return (
     <html lang="en">
       <body className="bg-gradient-to-r from-purple-500 to-purple-950">
         <Navbar/>
-        {Tokent!=="null"?
+        {Tokent!=="null" || uselogin==="allow"?
         <div className="grid grid-cols-5 gap-3">
             <div className="hidden lg:block"><Sidebar/></div>
             {children}
