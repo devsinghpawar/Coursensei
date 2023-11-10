@@ -17,6 +17,17 @@ async function getUser(github_name,github_id){
     }
 }
 
+async function getUsernew(token){
+    try {
+        const userdata = await userModel.find({ token:token });
+        //console.log('user fetched');
+        return userdata;
+    } catch (err) {
+        console.log(err);
+        return null; // or throw an error if you want to handle errors higher up the call stack
+    }
+}
+
  
 async function createUser(
     github_username,
@@ -36,4 +47,4 @@ async function updateUser(github_id,token){
     console.log("updated token...");
 }
 
-module.exports = { getUser,createUser,updateUser}
+module.exports = { getUser,createUser,updateUser,getUsernew}

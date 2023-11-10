@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var cors = require('cors');
-const { createUser,getUser,updateUser } = require('./Database/Saveuser');
+const { createUser,getUser,updateUser,getUsernew } = require('./Database/Saveuser');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
@@ -51,6 +51,11 @@ app.get('/saveuser', async function(req,res){
     else{
         createUser(req.get("github_username"),req.get("github_id"),req.get("github_avatar_url"),req.get("github_name"),req.get("github_location"),req.get("github_email"),req.get("token"),uuidv4());
     }
+})
+
+app.get('/getuser',async function(req,res){
+    var userdetails = await getUsernew(req.get("token"));
+    res.send(userdetails)
 })
 
 app.listen(5000,function(){
