@@ -13,6 +13,21 @@ import {
 import { Sidebar } from "@/components/ui/sidebar";
 import { Drawer } from "vaul";
 import { Separator } from "@/components/ui/separator"
+
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+
 export function Smallsidebar(){
   const [convo,setConvo] = useState<string>('ghost');
   const [product,setProduct] = useState<string>('ghost');
@@ -42,8 +57,8 @@ export function Smallsidebar(){
           <h2 className="mb-2 mt-2 px-4 text-lg font-semibold tracking-tight">
           </h2>
           <div className="space-y-1">
-          <Drawer.Root>
-      <Drawer.Trigger asChild>
+          <Sheet>
+          <SheetTrigger asChild>
             <Button variant={convo} id="sidebartrigger" onMouseOver={handleHover} className="w-[50px] justify-start" onClick={()=>openlink("","convo")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -51,7 +66,7 @@ export function Smallsidebar(){
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>    
             </Button>
-      </Drawer.Trigger>
+            </SheetTrigger>
             <Button variant={convo} className="w-[50px] justify-start" onClick={()=>openlink("","convo")}>
                 <svg xmlns="http://www.w3.org/2000/svg"
                   width="17" height="17" 
@@ -137,13 +152,10 @@ export function Smallsidebar(){
                 <path d="M12 18H3" />
               </svg>
             </Button>
-      <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-        <Drawer.Content className="bg-zinc-100 flex flex-col rounded-t-[10px] fixed top-0 left-0 w-[200px] mt-16">
-        <Sidebar/>
-        </Drawer.Content>
-        </Drawer.Portal>
-    </Drawer.Root>
+            <SheetContent>
+            <Sidebar/>
+            </SheetContent>
+        </Sheet>
           </div>
         </div>
     </div>
