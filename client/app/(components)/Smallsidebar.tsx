@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from 'next/navigation';
 import TeamSwitcher from "@/components/ui/team-switcher"
 import { useState } from "react";
-export function Sidebar(){
+import {
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+  } from "@/components/ui/hover-card"
+import { Sidebar } from "@/components/ui/sidebar";
+import { Drawer } from "vaul";
+import { Separator } from "@/components/ui/separator"
+export function Smallsidebar(){
   const [convo,setConvo] = useState<string>('ghost');
   const [product,setProduct] = useState<string>('ghost');
   const [dashboard,setDashboard] = useState<string>('ghost');
@@ -20,32 +28,46 @@ export function Sidebar(){
       setConvo('ghost');setProduct('ghost');setDashboard("secondary");
     }
   }
+
+  async function handleHover(){
+    const button = document.getElementById('sidebartrigger');
+    if(button!==null){
+    button.click();
+    }
+  }
   return (
     <div>
-      <div className="space-y-4 py-4">
+      <div className="w-[70px] space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 mt-2 px-4 text-lg font-semibold tracking-tight">
-            General
           </h2>
           <div className="space-y-1">
-            <Button variant={convo} className="w-full justify-start" onClick={()=>openlink("","convo")}>
-            <svg xmlns="http://www.w3.org/2000/svg"
-               width="17" height="17" 
-               viewBox="0 0 24 24" 
-               fill="none" 
-               stroke="#000000" 
-               stroke-width="2" 
-               stroke-linecap="round" 
-               stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                <div className="ml-2">
-              Conversations
-              </div>
+          <Drawer.Root>
+      <Drawer.Trigger asChild>
+            <Button variant={convo} id="sidebartrigger" onMouseOver={handleHover} className="w-[50px] justify-start" onClick={()=>openlink("","convo")}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>    
             </Button>
-            <Button variant={dashboard} className="w-full justify-start" onClick={()=>openlink("dashboard","dashboard")}>
+      </Drawer.Trigger>
+            <Button variant={convo} className="w-[50px] justify-start" onClick={()=>openlink("","convo")}>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="17" height="17" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="#000000" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+            </Button>  
+            <Button variant={dashboard} className="w-[50px] justify-start" onClick={()=>openlink("dashboard","dashboard")}>
               <svg
+              width="17" height="17"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -53,16 +75,15 @@ export function Sidebar(){
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                
               >
                 <rect width="7" height="7" x="3" y="3" rx="1" />
                 <rect width="7" height="7" x="14" y="3" rx="1" />
                 <rect width="7" height="7" x="14" y="14" rx="1" />
                 <rect width="7" height="7" x="3" y="14" rx="1" />
               </svg>
-              Dashboard
             </Button>
-            <Button variant={product} className="w-full justify-start" onClick={()=>openlink("agreements","product")}>
+            <Button variant={product} className="w-[50px] justify-start" onClick={()=>openlink("agreements","product")}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -71,7 +92,7 @@ export function Sidebar(){
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                
               >
                 <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
                 <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
@@ -79,9 +100,8 @@ export function Sidebar(){
                 <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" />
                 <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" />
               </svg>
-              Products
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-[50px] justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -90,7 +110,7 @@ export function Sidebar(){
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                
               >
                 <path d="M21 15V6" />
                 <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -98,9 +118,8 @@ export function Sidebar(){
                 <path d="M16 6H3" />
                 <path d="M12 18H3" />
               </svg>
-              Teams
             </Button>
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-[50px] justify-start">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -109,7 +128,7 @@ export function Sidebar(){
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="mr-2 h-4 w-4"
+                
               >
                 <path d="M21 15V6" />
                 <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
@@ -117,8 +136,14 @@ export function Sidebar(){
                 <path d="M16 6H3" />
                 <path d="M12 18H3" />
               </svg>
-              Settings
             </Button>
+      <Drawer.Portal>
+        <Drawer.Overlay className="fixed inset-0 bg-black/40" />
+        <Drawer.Content className="bg-zinc-100 flex flex-col rounded-t-[10px] fixed top-0 left-0 w-[200px] mt-16">
+        <Sidebar/>
+        </Drawer.Content>
+        </Drawer.Portal>
+    </Drawer.Root>
           </div>
         </div>
     </div>

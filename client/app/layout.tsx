@@ -10,6 +10,8 @@ import { Separator } from "@/components/ui/separator"
 import Landing from './(components)/Landing'
 const inter = Inter({ subsets: ['latin'] })
 import { useRouter,usePathname } from 'next/navigation';
+import { Smallsidebar } from './(components)/Smallsidebar'
+import { Sidehover } from './(components)/Sidehover'
 
 export const metadata: Metadata = {
   title: 'ProjectX',
@@ -43,9 +45,9 @@ export default function RootLayout({
       <body className={Tokent!=="null" || pathname === "/login"?" ":"bg-gradient-to-r from-purple-500 to-purple-950"}>
         <Navbar/>
         {Tokent!=="null" || pathname === "/login"?
-        <div className={pathname !== "/login"?"grid grid-cols-5 gap-3":""}>
+        <div className={pathname !== "/login"?"flex":""}>
           {pathname !== "/login"?
-            <div className="hidden lg:block"><Sidebar/></div>:<></>}
+            <div className="hidden lg:block"><Smallsidebar/></div>:<></>}
             {children}
         </div>:
         <Landing/>
