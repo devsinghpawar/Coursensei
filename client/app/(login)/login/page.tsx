@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {useRouter} from 'next/navigation'
 
-const CLIENT_ID = '8cb9b070f24805529bff';
+const CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const REDIRECT_URL = 'http://localhost:3000/login/';
 
 export default class page extends Component{

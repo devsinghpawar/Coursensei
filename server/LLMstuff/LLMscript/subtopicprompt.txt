@@ -1,0 +1,4 @@
+1.Requirement:- So based on the text provided which is a chapter of a subject ,give me an array of subtopics within it in 1 liners (each subtopic) that has to be covered so that it can be used to make blogs based on subtopics, give me just the array and nothing else, dont greet me or write anything else in the output other than array.
+2. Your response should be this and nothing else
+example format of output:- ['subtopic1','subtopic2']
+3.Don't let the array exceed more than 3 topics. Here is the chapter name: 

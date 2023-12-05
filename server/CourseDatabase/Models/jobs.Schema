@@ -1,0 +1,9 @@
+{
+    id: course_id,
+    app_id: app_id,
+    imgurl: imgurl,
+    total: 0,
+    doned: 0,
+    completed: "false",
+    topic_completed: "false"
+}

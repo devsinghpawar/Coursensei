@@ -1,0 +1,1 @@
+2.My requirement: This prompt is used to create a blog for the given title.

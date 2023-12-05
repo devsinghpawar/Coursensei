@@ -59,7 +59,7 @@ export function Smallsidebar(){
           <div className="space-y-1">
           <Sheet>
           <SheetTrigger asChild>
-            <Button variant={convo} id="sidebartrigger" onMouseOver={handleHover} className="w-[50px] justify-start" onClick={()=>openlink("","convo")}>
+            <Button variant={convo} id="sidebartrigger" onMouseOver={handleHover} className="w-[50px] justify-start" onClick={()=>openlink("","")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -81,76 +81,82 @@ export function Smallsidebar(){
                     </svg>
             </Button>  
             <Button variant={dashboard} className="w-[50px] justify-start" onClick={()=>openlink("dashboard","dashboard")}>
-              <svg
-              width="17" height="17"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                
-              >
-                <rect width="7" height="7" x="3" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="3" rx="1" />
-                <rect width="7" height="7" x="14" y="14" rx="1" />
-                <rect width="7" height="7" x="3" y="14" rx="1" />
-              </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: '24px', height: '24px' }}
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+              <line x1="8" y1="9" x2="16" y2="9" />
+              <line x1="8" y1="15" x2="14" y2="15" />
+            </svg>
+
+
             </Button>
-            <Button variant={product} className="w-[50px] justify-start" onClick={()=>openlink("agreements","product")}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                
-              >
-                <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
-                <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
-                <circle cx="12" cy="12" r="2" />
-                <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" />
-                <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" />
-              </svg>
+            <Button variant={product} className="w-[50px] justify-start" onClick={() => openlink("courses", "courses")}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: '24px', height: '24px' }} // Adjusted size using inline styles
+            >
+              <rect x="3" y="4" width="18" height="14" rx="2" ry="2" />
+              <line x1="12" y1="4" x2="12" y2="18" />
+            </svg>
+          </Button>
+
+
+            <Button variant="ghost" className="w-[50px] justify-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: '24px', height: '24px' }} // Adjusted size using inline styles
+            >
+              <circle cx="12" cy="7" r="4" />
+              <path d="M2 21a15.7 15.7 0 0 1 14-7" />
+              <path d="M22 21a15.7 15.7 0 0 0-14-7" />
+            </svg>
             </Button>
             <Button variant="ghost" className="w-[50px] justify-start">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                
-              >
-                <path d="M21 15V6" />
-                <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                <path d="M12 12H3" />
-                <path d="M16 6H3" />
-                <path d="M12 18H3" />
-              </svg>
-            </Button>
-            <Button variant="ghost" className="w-[50px] justify-start">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                
-              >
-                <path d="M21 15V6" />
-                <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                <path d="M12 12H3" />
-                <path d="M16 6H3" />
-                <path d="M12 18H3" />
-              </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ width: '24px', height: '24px' }} // Adjusted size using inline styles
+            >
+              <circle cx="12" cy="12" r="2" />
+              <path d="M19.39 12a7.5 7.5 0 0 0-1.32-4.17" />
+              <path d="M21 12a10 10 0 0 0-2-6" />
+              <path d="M3 12a10 10 0 0 1 2-6" />
+              <path d="M4.61 16.39a7.5 7.5 0 0 0 1.32 4.17" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.73" y1="4.73" x2="6.14" y2="6.14" />
+              <line x1="17.86" y1="17.86" x2="19.27" y2="19.27" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.73" y1="19.27" x2="6.14" y2="17.86" />
+              <line x1="17.86" y1="6.14" x2="19.27" y2="4.73" />
+            </svg>
             </Button>
             <SheetContent>
             <Sidebar/>

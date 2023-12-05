@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button"
 import Popup from './Popup'
 import { useRouter,usePathname} from 'next/navigation'
 import { useEffect } from 'react'
+import { ModeToggle } from './Toggle'
+
 export default function Navbar() {
   const[isSearch,setSearch]=useState<boolean>(true);
   const [Tokent, setToken] = useState<string>('');
@@ -42,11 +44,12 @@ export default function Navbar() {
             <AvatarFallback>...</AvatarFallback>
           </Avatar>
             <div className="ml-auto flex items-center space-x-3">
+            <ModeToggle/>
+            <UserNav />
               {pathname !== "/login"?
             <div className='block lg:hidden mr-4'>
                   <Popup/>
                 </div>:<></>}
-              <UserNav />
             </div>
           </div>
         </div>

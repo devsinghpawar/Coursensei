@@ -12,6 +12,8 @@ const inter = Inter({ subsets: ['latin'] })
 import { useRouter,usePathname } from 'next/navigation';
 import { Smallsidebar } from './(components)/Smallsidebar'
 import { Sidehover } from './(components)/Sidehover'
+import { EdgeStoreProvider } from '../lib/edgestore';
+import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: 'ProjectX',
@@ -41,14 +43,21 @@ export default function RootLayout({
     }
   })
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={Tokent!=="null" || pathname === "/login"?" ":"bg-gradient-to-r from-purple-500 to-purple-950"}>
         <Navbar/>
         {Tokent!=="null" || pathname === "/login"?
         <div className={pathname !== "/login"?"flex":""}>
           {pathname !== "/login"?
             <div className="hidden lg:block"><Smallsidebar/></div>:<></>}
-            {children}
+            <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <EdgeStoreProvider>{children}</EdgeStoreProvider>
+            </ThemeProvider>
         </div>:
         <Landing/>
         }

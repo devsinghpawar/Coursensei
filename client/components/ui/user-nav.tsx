@@ -59,28 +59,12 @@ import {
             <div className="flex flex-col space-y-1">
               <p className="text-sm font-medium leading-none">{newuserdetails[0]?.github_name}</p>
               <p className="text-xs leading-none text-muted-foreground">
-              {newuserdetails[0]?.github_email}
-              </p>
-              <p className="text-xs leading-none text-muted-foreground">
-              {newuserdetails[0]?.github_username}
+              @{newuserdetails[0]?.github_username}
               </p>
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              Profile
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Billing
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={deletetoken}>
