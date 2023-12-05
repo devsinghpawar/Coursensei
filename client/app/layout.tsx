@@ -15,11 +15,6 @@ import { Sidehover } from './(components)/Sidehover'
 import { EdgeStoreProvider } from '../lib/edgestore';
 import { ThemeProvider } from "@/components/theme-provider"
 
-export const metadata: Metadata = {
-  title: 'ProjectX',
-  description: 'Random Description',
-}
-
 export default function RootLayout({
   children,
 }: {
