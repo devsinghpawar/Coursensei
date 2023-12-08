@@ -1,7 +1,7 @@
 # Coursensei
 An application that creates course for you by uploading syllabus image and with just one click, also contains in-app AI chatbot.All made using Microsoft Azure AI service.
 
-![Logo](https://raw.githubusercontent.com/captain0jay/Loomen/main/assets/loomen.jpg)
+![Logo](https://github.com/captain0jay/Coursensei/blob/08b0dd915c0685e5d25b688b135da6013c542f46/Coursensei-logos_%20(1).jpeg)
 
 
 ## Installation
